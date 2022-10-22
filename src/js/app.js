@@ -33,10 +33,12 @@ scene.add(pointLight);
 const gui = new dat.GUI();
 
 // Add Objects
-const geometry = new THREE.TorusGeometry(0.7, 0.2, 16, 100);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+const torusGeo = new THREE.TorusGeometry(0.7, 0.2, 16, 100);
+const torusMat = new THREE.PointsMaterial({
+  size: 0.005,
+});
+const torusMesh = new THREE.Points(torusGeo, torusMat);
+scene.add(torusMesh);
 
 // Animate
 const clock = new THREE.Clock();
@@ -44,7 +46,7 @@ const clock = new THREE.Clock();
   const elapsedTime = clock.getElapsedTime();
 
   // Update objects
-  sphere.rotation.y = 0.5 * elapsedTime;
+  torusMesh.rotation.y = 0.5 * elapsedTime;
 
   // Update Orbital Controls
   // orbit.update()
