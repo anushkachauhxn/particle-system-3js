@@ -10,6 +10,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor(new THREE.Color("#21282a"), 1);
 
 // Scene + Camera + Orbit Controls
 const scene = new THREE.Scene();
@@ -20,10 +21,6 @@ const camera = new THREE.PerspectiveCamera(
   100
 );
 camera.position.set(0, 0, 2);
-
-const orbit = new OrbitControls(camera, canvas);
-orbit.enableDamping = true;
-orbit.update();
 
 // Lights
 const pointLight = new THREE.PointLight(0xffffff, 0.1);
@@ -63,6 +60,14 @@ particlesGeo.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
 const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
 scene.add(particlesMesh);
 
+// Mouse Values
+let mouseX = 0,
+  mouseY = 0;
+document.addEventListener("mousemove", (event) => {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+});
+
 // Animate
 const clock = new THREE.Clock();
 (function tick() {
@@ -70,9 +75,12 @@ const clock = new THREE.Clock();
 
   // Update objects
   torusMesh.rotation.y = 0.5 * elapsedTime;
+  particlesMesh.rotation.y = -0.1 * elapsedTime;
 
-  // Update Orbital Controls
-  orbit.update();
+  if (mouseX > 0) {
+    particlesMesh.rotation.x = -mouseY * elapsedTime * 0.00008;
+    particlesMesh.rotation.y = mouseX * elapsedTime * 0.00008;
+  }
 
   // Render
   renderer.render(scene, camera);
