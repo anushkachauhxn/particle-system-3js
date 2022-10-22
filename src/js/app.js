@@ -1,6 +1,4 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import * as dat from "dat.gui";
 import sparkleTexture from "../assets/sparkler.png";
 
 // Renderer
@@ -29,9 +27,6 @@ scene.add(pointLight);
 
 // Texture Loader
 const loader = new THREE.TextureLoader();
-
-// GUI Controls
-const gui = new dat.GUI();
 
 // Add Objects
 // 1. Torus

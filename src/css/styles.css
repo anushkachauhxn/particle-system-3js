@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  color: white;
+}
+
+/* canvas for three.js */
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+/* html content */
+.container {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  display: grid;
+  place-content: center;
+  z-index: 1;
+}
+
+.content {
+  padding-top: 2em;
+  width: 90vw;
+  display: flex;
+  gap: 20em;
+  border-top: 1px solid white;
+}
+
+h1,
+p {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 97%;
+  text-align: right;
+}
+
+p {
+  font-size: 1.3rem;
+}
