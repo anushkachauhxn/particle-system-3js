@@ -1,0 +1,17 @@
+{
+  "name": "particle-system",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "parcel": "^2.7.0",
+    "three": "^0.145.0"
+  }
+}
