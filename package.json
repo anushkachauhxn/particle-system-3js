@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dat.gui": "^0.7.9",
     "gsap": "^3.11.3",
     "parcel": "^2.7.0",
     "three": "^0.145.0"
