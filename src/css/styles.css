@@ -30,17 +30,19 @@ body {
 }
 
 .content {
-  padding-top: 2em;
+  padding-top: 1em;
   width: 90vw;
   display: flex;
   gap: 20em;
   border-top: 1px solid white;
+  transform: scaleX(0);
 }
 
 h1,
 p {
   flex-basis: 0;
   flex-grow: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 h1 {

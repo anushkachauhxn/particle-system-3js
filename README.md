@@ -8,6 +8,6 @@ A futuristic webpage with 3D background and animations.
 - parcel bundler
 - gsap animation
 
-## References:
+## 🔎 References:
 
 - Tutorial - [youtube](https://youtu.be/dLYMzNmILQA)
