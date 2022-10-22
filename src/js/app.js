@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import * as dat from "dat.gui";
+import sparkleTexture from "../assets/sparkler.png";
 
 // Renderer
 const canvas = document.querySelector(".webgl");
@@ -29,6 +30,9 @@ const pointLight = new THREE.PointLight(0xffffff, 0.1);
 pointLight.position.set(2, 3, 4);
 scene.add(pointLight);
 
+// Texture Loader
+const loader = new THREE.TextureLoader();
+
 // GUI Controls
 const gui = new dat.GUI();
 
@@ -44,13 +48,15 @@ scene.add(torusMesh);
 // 2. Particles
 const particlesGeo = new THREE.BufferGeometry();
 const particlesMat = new THREE.PointsMaterial({
-  size: 0.005,
+  size: 0.01,
+  map: loader.load(sparkleTexture),
+  transparent: true,
 });
 
 const particlesCount = 5000;
 const posArray = new Float32Array(particlesCount * 3); // xyz, xyz, xyz
 for (i = 0; i < particlesCount * 3; i++) {
-  posArray[i] = (Math.random() - 0.5) * 50 * Math.random();
+  posArray[i] = (Math.random() - 0.5) * 5 * Math.random();
 }
 particlesGeo.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
 
