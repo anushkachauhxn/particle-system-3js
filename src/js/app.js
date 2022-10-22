@@ -33,12 +33,29 @@ scene.add(pointLight);
 const gui = new dat.GUI();
 
 // Add Objects
+// 1. Torus
 const torusGeo = new THREE.TorusGeometry(0.7, 0.2, 16, 100);
 const torusMat = new THREE.PointsMaterial({
   size: 0.005,
 });
 const torusMesh = new THREE.Points(torusGeo, torusMat);
 scene.add(torusMesh);
+
+// 2. Particles
+const particlesGeo = new THREE.BufferGeometry();
+const particlesMat = new THREE.PointsMaterial({
+  size: 0.005,
+});
+
+const particlesCount = 5000;
+const posArray = new Float32Array(particlesCount * 3); // xyz, xyz, xyz
+for (i = 0; i < particlesCount * 3; i++) {
+  posArray[i] = (Math.random() - 0.5) * 50 * Math.random();
+}
+particlesGeo.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
+
+const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+scene.add(particlesMesh);
 
 // Animate
 const clock = new THREE.Clock();
@@ -49,7 +66,7 @@ const clock = new THREE.Clock();
   torusMesh.rotation.y = 0.5 * elapsedTime;
 
   // Update Orbital Controls
-  // orbit.update()
+  orbit.update();
 
   // Render
   renderer.render(scene, camera);
