@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
+  "homepage": "https://anushkachauhxn.github.io/particle-system-3js",
   "scripts": {
+    "predeploy": "parcel build",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,5 +16,8 @@
     "gsap": "^3.11.3",
     "parcel": "^2.7.0",
     "three": "^0.145.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
