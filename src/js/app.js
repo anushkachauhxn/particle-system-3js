@@ -47,7 +47,7 @@ const particlesMat = new THREE.PointsMaterial({
 
 const particlesCount = 5000;
 const posArray = new Float32Array(particlesCount * 3); // xyz, xyz, xyz
-for (i = 0; i < particlesCount * 3; i++) {
+for (let i = 0; i < particlesCount * 3; i++) {
   posArray[i] = (Math.random() - 0.5) * 5 * Math.random();
 }
 particlesGeo.setAttribute("position", new THREE.BufferAttribute(posArray, 3));
